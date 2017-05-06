@@ -1,0 +1,73 @@
+body{
+background-image:none;
+background-color: white;
+font-family: helvetica;
+}
+
+.navItem{
+background-color: initial;
+background-image:url('img/mahog.jpg');
+}
+
+#mainNav{
+background-color: FCFCFC;
+}
+
+#quote{
+	padding-top: 0px;
+	margin-top:0px;
+	max-width: 50%;
+	position:fixed;
+	top: 0px;
+	right: 40px;
+}
+#quote p{
+font-style: italic; 
+text-align: right;
+}
+#leftMain{	
+	position:relative;
+	float: left;
+	height: 100%;
+	width: 25%;
+	margin: .5%;
+	padding: 0px;		
+}
+#leftMain div{
+	display:block;
+	margin: 0px;
+	padding: 0px; 
+	width:100%;
+}
+	#mainNav{
+		height:75%;
+		border-style:solid;
+		background-color: lightgray;
+		border-radius: 5px;
+	}
+	#login{
+		top: 1%;
+		height:20%;
+	}
+	content{
+	background-color: lightgray;
+	}
+	.post{
+		background-color: white;
+		border-radius:5px;
+		padding: 1%;
+		margin: 1%;
+		clear:both;
+	}
+	.content img{
+	max-width: 100%;
+	max-height: 400px;
+	
+	
+	}
+	.content{
+	float: left;
+	}
+	div.post::after {
+	clear: both;
+	}
