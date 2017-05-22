@@ -120,7 +120,7 @@
                         /* fetch object array */
                         print_r($result);
                         while ($obj = $result->fetch_object()) {
-                            echo "<option value='" . $obj['id'] . "'>" . $obj['name'] . "</option>";
+                            echo "<option value='" . $obj->id . "'>" . $obj->name . "</option>";
 
                         }
                     }
