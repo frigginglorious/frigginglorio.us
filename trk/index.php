@@ -55,7 +55,7 @@
 			</div>
 			<div id="login">
 				Log in to create post:
-				<form action="cms/login.php" method = "post">
+				<form action="/cms/login.php" method = "post">
 					<label for="username">Username:</label> <input type="username" id="username" name="username"><br />
 					<label for="password">Password:</label> <input type="password" id="password" name="password"><br />
 					<button type = "submit">Login</button>

@@ -25,6 +25,8 @@
           <li><a href="index.php?cat=gam">Gamer</a></li>
         </ul>
       </div>
+
+
     </nav>
 
     </header>
