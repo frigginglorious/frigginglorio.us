@@ -3,7 +3,7 @@
 return array(
     'host' => 'localhost',
     'username' => 'root',
-    'password' => 'lolygag',
+    'password' => 'a',
     'database' => 'trk',
 );
 ?>

@@ -58,7 +58,7 @@
 
 
             // if ((isset($_SESSION['username'])) && ($_SESSION['login']==true)){
-            if ((isset($_POST["cat"])) && isset(($_POST["title"]))) {
+            if ((isset($_POST["cat"])) && isset($_POST["title"])) {
                 date_default_timezone_set('UTC');
 
                 if (mysqli_connect_errno()) {
