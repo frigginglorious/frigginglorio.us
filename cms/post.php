@@ -107,6 +107,9 @@ tinymce.init({
                     // $content = mysqli_real_escape_string($link, $content);
                     // $title = mysqli_real_escape_string($link, $title);
 
+                    $content = $link->real_escape_string($content);
+                    $title = $link->real_escape_string($title);
+
                     $sql = "SELECT id FROM author WHERE name ='" . $author . "'";
                     $authorID = $link->query($sql)->fetch_object()->id;
 
