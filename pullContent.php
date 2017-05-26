@@ -22,7 +22,7 @@
 
 
 					echo "<h2>" . $catInfo["name"] . "</h2>";
-					$result = mysqli_query($link, "SELECT author, title, catID, content, date FROM post WHERE catID = '" . $catInfo["id"] . "' AND author = 1 ORDER BY date DESC");
+					$result = mysqli_query($link, "SELECT author, title, catID, content, date FROM post WHERE catID = '" . $catInfo["id"] . "' ORDER BY date DESC");
 
 
 					while ($row = mysqli_fetch_assoc($result)) {

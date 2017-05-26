@@ -3,10 +3,11 @@
 ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
 error_reporting(-1);
+session_start();
 
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
-    include('/cms/post.php');
+if ($_SESSION['loggedin']==true){
+    include('post.php');
 }else if(isset($_POST['username']) && isset($_POST['password'])){
     $link = include('dbConnect.php');
 
@@ -22,7 +23,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
         /* fetch object array */
         while ($obj = $result->fetch_object()) {
             if($password == $obj->password){
-                session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $name;
 
@@ -45,7 +45,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
 }
 
 else{
-  session_destroy();
+  // session_destroy();
 
   echo "You Must Log In.";
 
@@ -63,5 +63,5 @@ else{
       <?php
 }
 echo "session: ";
-print_r($_SESSION['login']);
+print_r($_SESSION['loggedin']);
 ?>

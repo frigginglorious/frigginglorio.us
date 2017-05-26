@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head><!-- CDN hosted by Cachefly -->
-<script src="tinymce/tinymce.min.js"></script>
+<head>
+<script src="/cms/js/tinymce/tinymce.min.js"></script>
 <script>
-        tinymce.init({
-  selector: "textarea",
+//         tinymce.init({
+//   selector: "textarea",
+//
+//   // ===========================================
+//   // INCLUDE THE PLUGIN
+//   // ===========================================
+//
+//   plugins: [
+//     "advlist autolink lists link image charmap print preview anchor",
+//     "searchreplace visualblocks code fullscreen",
+//     "insertdatetime media table contextmenu paste jbimages"
+//   ],
+//
+//   // ===========================================
+//   // PUT PLUGIN'S BUTTON on the toolbar
+//   // ===========================================
+//
+//   toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
+//
+//   // ===========================================
+//   // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
+//   // ===========================================
+//
+//   relative_urls: false
+//
+// });
 
-  // ===========================================
-  // INCLUDE THE PLUGIN
-  // ===========================================
-
+tinymce.init({
+  selector: 'textarea',
+  height: 500,
+  menubar: false,
   plugins: [
-    "advlist autolink lists link image charmap print preview anchor",
-    "searchreplace visualblocks code fullscreen",
-    "insertdatetime media table contextmenu paste jbimages"
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste code jbimages'
   ],
-
-  // ===========================================
-  // PUT PLUGIN'S BUTTON on the toolbar
-  // ===========================================
-
-  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-
-  // ===========================================
-  // SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-  // ===========================================
-
-  relative_urls: false
-
+  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages',
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css']
 });
+
 </script>
 </head>
 <body>
@@ -38,7 +54,7 @@
         ini_set('display_errors', 1);
         // error_reporting(-1);
 
-        $link = include('dbConnect.php');
+        // $link = include('dbConnect.php');
         // $link = mysqli_connect($config["host"], $config["username"], $config["password"]) or
         // die("Could not connect: " . mysql_error());
         // mysqli_select_db($link, $config["database"]);
@@ -51,7 +67,7 @@
 
         // if ($password == $credential['password'] && !(is_null($password))) {
         if ($_SESSION['loggedin'] == true) {
-            echo "Logged In as " . $name;
+            // echo "Logged In as " . $name;
             // $_SESSION['login'] = true;
             // $_SESSION['username'] = $username;
             // $_SESSION['password'] = $password;
@@ -59,6 +75,7 @@
 
             // if ((isset($_SESSION['username'])) && ($_SESSION['login']==true)){
             if ((isset($_POST["cat"])) && isset($_POST["title"])) {
+                // echo "POST IS WORKING";
                 date_default_timezone_set('UTC');
 
                 if (mysqli_connect_errno()) {
@@ -73,7 +90,7 @@
 
                   // This is where I should decode the special chars, after encoding them first, probably.
                   //$content = htmlspecialchars($_POST["content"]);
-                  $content = $_POST["content"];
+                $content = $_POST["content"];
                 $date = date("F j, Y, g:i a");
                 if (($author != null) && ($cat != null) && ($title != null) && ($content != null)) {
                     echo "Author: " . $author . "<br>";
@@ -82,33 +99,44 @@
 
 
 
-                    $config = include('../config.php');
-                    $link = mysqli_connect($config["host"], $config["username"], $config["password"]) or
-                    die("Could not connect: " . mysql_error());
-                    mysqli_select_db($link, $config["database"]);
+                    // $config = include('../config.php');
+                    // $link = mysqli_connect($config["host"], $config["username"], $config["password"]) or
+                    // die("Could not connect: " . mysql_error());
+                    // mysqli_select_db($link, $config["database"]);
 
-                    $content = mysqli_real_escape_string($link, $content);
-                    $title = mysqli_real_escape_string($link, $title);
+                    // $content = mysqli_real_escape_string($link, $content);
+                    // $title = mysqli_real_escape_string($link, $title);
+
+                    $sql = "SELECT id FROM author WHERE name ='" . $author . "'";
+                    $authorID = $link->query($sql)->fetch_object()->id;
+
+                    print_r($authorID);
 
                     echo "Title: " . $title . "<br>";
                     echo "Content: " . $content . "<br>";
 
-
-                    $result = mysqli_query($link, "SELECT id FROM author WHERE name ='" . $author . "'");
-                    $credential = mysqli_fetch_assoc($result);
-                    $authorID = $credential['id'];
+                    $sql = "INSERT INTO post(author, catID, title, content) VALUES ('" . $authorID . "', '" . $cat . "', '". $title . "', '". $content . "')";
+                    $result = $link->query($sql);
+                    print_r($result);
+                    // $result = mysqli_query($link, "SELECT id FROM author WHERE name ='" . $author . "'");
+                    // $credential = mysqli_fetch_assoc($result);
+                    // $authorID = $credential['id'];
                     echo "Author ID: " . $authorID . "<br>";
-                    mysqli_free_result($result);
-                    mysqli_query($link, "INSERT INTO post(author, catID, title, content) VALUES ('" . $authorID . "', '" . $cat . "', '". $title . "', '". $content . "')");
-                    if ($link->errno) {
+                    // mysqli_free_result($result);
+                    // mysqli_query($link, "INSERT INTO post(author, catID, title, content) VALUES ('" . $authorID . "', '" . $cat . "', '". $title . "', '". $content . "')");
+                    if ($result) {
+                        echo "good insert";
+                    }else {
                         throw new Exception($link->error, $link->errno);
                     }
+                    $link->close();
+
                 } else {
                     echo "Input info in all boxes <br/>";
                 }
                     // session_destroy();
             }?>
-			<form name="input" action="post.php" method="post">
+			<form name="input" action="/cms/index.php" method="post">
 
 				<label for="cat">Category:</label>
 				<select id="cat" name='cat'>
@@ -118,13 +146,13 @@
                     $sql = "SELECT * FROM cat";
                     if ($result = $link->query($sql)) {
                         /* fetch object array */
-                        print_r($result);
+                        // print_r($result);
                         while ($obj = $result->fetch_object()) {
                             echo "<option value='" . $obj->id . "'>" . $obj->name . "</option>";
 
                         }
                     }
-                    $result->close();
+                    // $result->close();
 
 
             // while ($row = mysqli_fetch_assoc($query)) {
