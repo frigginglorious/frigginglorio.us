@@ -5,7 +5,7 @@
       <div id="nameLogo" class="pull-left navbar-header">
         <a href="index.php"><h1><span id="fName">DANIEL</span><span id="lName">Kraft</span></h1></a>
         <div id="tag" class="pull-right">
-            <a href="https://github.com/daniel-kraft"><i class="fa fa-github" aria-hidden="true"></i></a>
+            <a href="https://github.com/frigginglorious"><i class="fa fa-github" aria-hidden="true"></i></a>
             <a href="https://www.youtube.com/frigginglorious"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
             <a href="https://soundcloud.com/daniel-kraft"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
             <a href="http://twitter.com/frigginglorious"><i class="fa fa-twitter" aria-hidden="true"></i>
