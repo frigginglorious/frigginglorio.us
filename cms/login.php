@@ -6,46 +6,39 @@ error_reporting(-1);
 session_start();
 
 
-if ($_SESSION['loggedin']==true){
+if ((isset($_SESSION['loggedin'])) && ($_SESSION['loggedin']===TRUE)){
     include('post.php');
 }else if(isset($_POST['username']) && isset($_POST['password'])){
-    $link = include('dbConnect.php');
 
     $name = $_POST['username'];
     $password = sha1($_POST['password']);
 
 
-    $sql = "select * from author where name = '$name'";
+    $sql = "select * from author where name = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$name]);
 
+    if ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+    {
 
-
-    if ($result = $link->query($sql)) {
-        /* fetch object array */
-        while ($obj = $result->fetch_object()) {
-            if($password == $obj->password){
-                $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $name;
-
-            }
-        }
-        /* free result set */
-        $result->close();
-        if ($_SESSION['loggedin'] == TRUE) {
-
+        if($password == $row["password"]){
+            $_SESSION['loggedin'] = TRUE;
+            $_SESSION['username'] = $name;
+            $_SESSION['id'] = $row["id"];
             echo "LOGGED IN";
             include("post.php");
-
+        }else{
+            echo "Bad Password";
         }
-    }else {
-        echo "Error: " . $sql . "<br>" . $link->error;
+    }
+    else {
+        echo "Error: " . $sql . "<br>";
         session_destroy();
 
     }
 
-}
-
-else{
-  // session_destroy();
+}else{
+  session_destroy();
 
   echo "You Must Log In.";
 

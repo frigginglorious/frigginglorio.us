@@ -2,8 +2,9 @@
 
 
 
-$link = include("dbConnect.php");
+$pdo = include("dbConnect.php");
 $sql = "SELECT * FROM author";
+$stmt = $pdo->query($sql);
 
 // print_r($link->query($sql));
 // if ($link->query($sql) === TRUE) {
@@ -13,17 +14,24 @@ $sql = "SELECT * FROM author";
 // }
 // // print_r($result);
 
-if (($link->query($sql)->field_count < 1)){
+if (($stmt->rowCount() < 1)){
     if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == 'POST' )) {
         if (isset($_POST["name"]) && isset($_POST["password"])){
             $password = SHA1($_POST["password"]);
             $name = $_POST["name"];
 
-            $sql = "INSERT into author(name, password) Values ('$name', '$password')";
-            if ($link->query($sql) === TRUE) {
+            $sql = "SELECT * FROM author where name = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$name]);
+            if($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                exit("Username Already Exists");
+            }
+
+            $sql = "INSERT into author(name, password) Values (?, ?)";
+            if ($pdo->query($sql) === TRUE) {
                 echo "New record created successfully";
             } else {
-                echo "Error: " . $sql . "<br>" . $link->error;
+                echo "Error: " . $sql . "<br>" . $pdo->error;
             }
         }
     }else{
@@ -44,5 +52,5 @@ if (($link->query($sql)->field_count < 1)){
 }else{
     include("login.php");
 }
-
 ?>
+<a href="/cms/logout.php">Logout</a>
