@@ -16,7 +16,7 @@
 
 					$cat = $_GET["cat"];
 
-					$sql = "SELECT post.id as postID, author, title, catID, content, author.id as authorID, author.name as authorName, cat.name as catName, date FROM post JOIN author on author.id = author JOIN cat on cat.id = post.catID WHERE cat.cat = ?";
+					$sql = "SELECT post.id as postID, author, title, catID, content, author.id as authorID, author.name as authorName, cat.name as catName, date FROM post JOIN author on author.id = author JOIN cat on cat.id = post.catID WHERE cat.cat = ? ORDER BY date DESC";
 					$stmt = $pdo->prepare($sql);
 					$stmt->execute([$cat]);
 					echo "<h2>{$row["catName"]}</h2>";
