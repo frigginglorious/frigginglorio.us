@@ -6,15 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<meta name="HandheldFriendly" content="True" />
 	<link rel="shortcut icon" href="favicon.ico" />
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="css/fa/css/font-awesome.min.css">
 
 
-	<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
-
+	<script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
 	<title>Daniel Kraft: frigginGlorious</title>
 
 	<?php include "analytics.php" ?>
@@ -27,7 +26,10 @@
 <body>
 
 	<div id="wrapper">
-	<?php include 'topNav.php'; ?>
+	<?php
+	$pdo = include("cms/dbConnect.php");
+	include 'topNav.php'; 
+	?>
 
 		<div class="row" style="margin:0px;">
 			<div id="outBar" class="col-sm-3 blog-sidebar hidden-xs" style="padding:0px;">

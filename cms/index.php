@@ -1,7 +1,20 @@
+<html>
+<head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="/css/fa/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
+
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+    <link href="/css/fontawesome-iconpicker.min.css" rel="stylesheet">
+    <script src="/js/fontawesome-iconpicker.min.js"></script>
+
+
+</head>
+<body>
 <?php
-
-
-
 $pdo = include("dbConnect.php");
 $sql = "SELECT * FROM author";
 $stmt = $pdo->query($sql);
@@ -54,3 +67,5 @@ if (($stmt->rowCount() < 1)){
 }
 ?>
 <a href="/cms/logout.php">Logout</a>
+</body>
+</html>

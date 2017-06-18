@@ -1,6 +1,5 @@
     <header>
 
-
     <nav role="navigation" class="navbar navbar-default">
       <div id="nameLogo" class="pull-left navbar-header">
         <a href="index.php"><h1><span id="fName">DANIEL</span><span id="lName">Kraft</span></h1></a>
@@ -17,15 +16,16 @@
 
       <div id="topNav" class="collapse navbar-collapse navbar-default navbar-static-top">
         <ul class="nav navbar-nav">
-          <li><a href="index.php?cat=srv">Applications</a></li>
-          <li><a href="index.php?cat=web">Development</a></li>
-          <li><a href="index.php?cat=osi">Ideologue</a></li>
-          <li><a href="index.php?cat=mus">Musician</a></li>
-          <li><a href="index.php?cat=adv">Adventurer</a></li>
-          <li><a href="index.php?cat=gam">Gamer</a></li>
+            <?php
+                $sql = "SELECT * FROM cat";
+                $stmt = $pdo->query($sql);
+                foreach ($stmt as $row)
+                {
+                    printf ("<li><span class='backdrop-icon'><i class='fa %s fa-4x' aria-hidden='true'></i></span><a class='category-link' href='index.php?cat=%s'>%s</a></li>", $row['icon'], $row['cat'], $row['name']);
+                }
+             ?>
         </ul>
       </div>
-
 
     </nav>
 

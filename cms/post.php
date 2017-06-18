@@ -41,18 +41,18 @@ tinymce.init({
 
                 $content = $_POST["content"];
                 $date = date("F j, Y, g:i a");
-                if (($authorID != null) && ($cat != null) && ($title != null) && ($content != null)) {
-                    echo "Author: " . $author . "<br>";
-                    echo "CatID: " . $cat . "<br>";
 
-                    echo "Title: " . $title . "<br>";
-                    echo "Content: " . $content . "<br>";
+                if (($authorID != null) && ($cat != null) && ($title != null) && ($content != null)) {
 
                     $sql = "INSERT INTO post(author, catID, title, content) VALUES (?, ?, ?, ?)";
                     $stmt = $pdo->prepare($sql);
 
                     if ($stmt->execute([$authorID,$cat,$title,$content])) {
-                        echo "good insert";
+                        echo "Insert Success";
+                        echo "Author: " . $author . "<br>";
+                        echo "CatID: " . $cat . "<br>";
+                        echo "Title: " . $title . "<br>";
+                        echo "Content: " . $content . "<br>";
                     }else {
                         echo "Insert Error";
                     }
@@ -61,7 +61,11 @@ tinymce.init({
                     echo "Input info in all boxes <br/>";
                 }
 
-            }?>
+            }
+            include("addCat.php");
+
+            ?>
+            <h2>Add Post</h2>
 			<form name="input" action="/cms/index.php" method="post">
 
 				<label for="cat">Category:</label>
@@ -82,8 +86,6 @@ tinymce.init({
 				<input type="submit" value="Submit">
 			</form>
 	<?php
-
-        include("addCat.php");
         } else {
             echo "incorrect login";
             $_SESSION['loggedin'] = FALSE;
