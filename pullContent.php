@@ -16,11 +16,22 @@
 
 					$cat = $_GET["cat"];
 
-					$sql = "SELECT post.id as postID, author, title, catID, content, author.id as authorID, author.name as authorName, cat.name as catName, date FROM post JOIN author on author.id = author JOIN cat on cat.id = post.catID WHERE cat.cat = ? ORDER BY date DESC";
+					$sql = "SELECT post.id as postID, author, title, catID, content, author.id as authorID, author.name as authorName, cat.name as catName, cat.icon as catIcon, date FROM post JOIN author on author.id = author JOIN cat on cat.id = post.catID WHERE cat.cat = ? ORDER BY date DESC";
 					$stmt = $pdo->prepare($sql);
 					$stmt->execute([$cat]);
-					echo "<h2>{$row["catName"]}</h2>";
-					foreach ($stmt as $row)
+					$rows = $stmt->fetchAll();
+					// print_r();
+					// if ($rows->count())
+					if(count($rows)>0){
+						$catName = $rows[0]['catName'];
+						$catIcon = $rows[0]['catIcon'];
+						echo "<h2>{$catName}</h2>";
+						for ($i = 0; $i < strlen($catName); $i++){
+							echo "<i class='fa {$catIcon}'></i>";
+						}
+					}
+
+					foreach ($rows as $row)
 					{
 					   echo "<h3>" . $row["title"] . "</h3>Posted By: " . $row["authorName"] . ", at: " . $row["date"] . " EST.<br /><br />";
 					   echo $row["content"];
