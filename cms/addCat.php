@@ -1,6 +1,25 @@
 <?php
 if ($_SESSION['loggedin'] === TRUE) {
-    if ((isset($_POST["catName"])) && isset($_POST["catURL"])) {
+    if (isset($_POST["catName"]) && isset($_POST["catURL"]) && isset($_POST["catID"])) {
+        $catName = $_POST["catName"];
+        $catURL = $_POST["catURL"];
+        $catIcon = $_POST["catIcon"];
+        $catID = $_POST["catID"];
+        if (($catName != null) && ($catURL != null) && ($catIcon != null) && ($catID != null)) {
+            $sql = "UPDATE cat SET cat = ?, name = ?, icon = ? WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+
+            if ($stmt->execute([$catURL, $catName, $catIcon, $catID])) {
+                echo "Good Category Update";
+            }else {
+                echo "Update Category Error";
+            }
+        } else {
+
+            echo "Input info in all boxes <br/>";
+
+        }
+    }elseif (isset($_POST["catName"]) && isset($_POST["catURL"])) {
         $catName = $_POST["catName"];
         $catURL = $_POST["catURL"];
         $catIcon = $_POST["catIcon"];

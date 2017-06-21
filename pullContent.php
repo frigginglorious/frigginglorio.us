@@ -20,8 +20,8 @@
 					$stmt = $pdo->prepare($sql);
 					$stmt->execute([$cat]);
 					$rows = $stmt->fetchAll();
-					// print_r();
-					// if ($rows->count())
+
+					// Displays at top of category
 					if(count($rows)>0){
 						$catName = $rows[0]['catName'];
 						$catIcon = $rows[0]['catIcon'];

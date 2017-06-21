@@ -22,6 +22,32 @@ tinymce.init({
 </script>
 </head>
 <body>
+    <div class="row" style="margin:0px;">
+        <div id="outBar" class="col-sm-3 blog-sidebar hidden-xs" style="padding:0px;">
+            <div id="sideBar">
+                <table class="table-striped">
+                    <tr>
+                        <th>
+                            Edit Categories
+                        </th>
+                    </tr>
+                    <?php include ($_SERVER['DOCUMENT_ROOT'] . '/topNav.php'); ?>
+
+                </table>
+                <table class="table-striped">
+                    <tr>
+                        <th>
+                            Edit Posts
+                        </th>
+                    </tr>
+                    <?php include ($_SERVER['DOCUMENT_ROOT'] . '/sideNav.php'); ?>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="col-sm-9 blog-main">
+
 
 	<?php
         ini_set('display_startup_errors', 1);
@@ -29,18 +55,33 @@ tinymce.init({
         // error_reporting(-1);
 
         if ($_SESSION['loggedin'] === TRUE) {
+            date_default_timezone_set('UTC');
 
-            if ((isset($_POST["cat"])) && isset($_POST["title"])) {
+            $author = $_SESSION['username'];
+            $authorID = $_SESSION['id'];
+            $date = date("F j, Y, g:i a");
 
-                date_default_timezone_set('UTC');
-
-                $author = $_SESSION['username'];
-                $authorID = $_SESSION['id'];
+            if(isset($_POST["id"]) && isset($_POST["cat"]) && isset($_POST["title"])){
                 $cat = $_POST["cat"];
                 $title = $_POST["title"];
-
                 $content = $_POST["content"];
-                $date = date("F j, Y, g:i a");
+                $postID = $_POST["id"];
+                $sql = "UPDATE post SET catID = ?, title = ?, content = ? WHERE id = ?";
+                $stmt = $pdo->prepare($sql);
+
+                if ($stmt->execute([$cat,$title,$content, $postID])) {
+                    echo "Update Success";
+                    echo "CatID: " . $cat . "<br>";
+                    echo "Title: " . $title . "<br>";
+                    echo "Content: " . $content . "<br>";
+                }else {
+                    echo "Update Error";
+                }
+            }elseif ((isset($_POST["cat"])) && isset($_POST["title"])) {
+
+                $cat = $_POST["cat"];
+                $title = $_POST["title"];
+                $content = $_POST["content"];
 
                 if (($authorID != null) && ($cat != null) && ($title != null) && ($content != null)) {
 
@@ -62,29 +103,17 @@ tinymce.init({
                 }
 
             }
-            include("addCat.php");
+            if(isset($_GET["postID"])){
+                include("editPost.php");
+            }elseif(isset($_GET["cat"])){
+                include("editCat.php");
+            }else{
+                include("addCat.php");
+                include("addPost.php");
+            }
 
             ?>
-            <h2>Add Post</h2>
-			<form name="input" action="/cms/index.php" method="post">
 
-				<label for="cat">Category:</label>
-				<select id="cat" name='cat'>
-				<?php
-
-                    $sql = "SELECT * FROM cat";
-                    $stmt = $pdo->query($sql);
-
-                    foreach ($stmt as $row){
-                            echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
-                    }
-
-            ?>
-				</select><br/>
-				Blog Post Title: <input id="title" name="title"></input><br/>
-				Blog Post Text: <textarea id="content" name="content"></textarea><br/>
-				<input type="submit" value="Submit">
-			</form>
 	<?php
         } else {
             echo "incorrect login";
@@ -93,6 +122,7 @@ tinymce.init({
         }
 
     ?>
-
+</div>
+</div>
 	</body>
 </html>
