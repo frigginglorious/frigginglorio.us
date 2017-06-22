@@ -11,5 +11,6 @@ Rebuilding my personal website, which is mostly vanilla PHP, and documenting the
 3. clean up filestructure
 4. add ~~CRU~~D for CMS categories
 5. Figure out how to handle deleting for categories. Don't want to orphan posts in DB. Should I just innactivate them, or delete entirely from DB? Are they visible from the admin panel at all?
+5. Add "Featured Content" DB table that references post IDs and has fields for "technology stats"... which might be it's own reference table, color... and... you can add a short description of the project.
 5. Add some cool stuff with REACT
 6. Add decent content!
