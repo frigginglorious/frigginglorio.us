@@ -1,10 +1,14 @@
 <?php
 if ($_SESSION['loggedin'] === TRUE) {
-    if (isset($_POST["catName"]) && isset($_POST["catURL"]) && isset($_POST["catID"])) {
+    if (isset($_POST["catName"]) && isset($_POST["catURL"]) && isset($_POST["catID"]) && !isset($_POST["catDelete"])) {
         $catName = $_POST["catName"];
         $catURL = $_POST["catURL"];
         $catIcon = $_POST["catIcon"];
         $catID = $_POST["catID"];
+
+        echo "should NOT delete: " . $_POST["catDelete"];
+
+
         if (($catName != null) && ($catURL != null) && ($catIcon != null) && ($catID != null)) {
             $sql = "UPDATE cat SET cat = ?, name = ?, icon = ? WHERE id = ?";
             $stmt = $pdo->prepare($sql);
@@ -19,10 +23,15 @@ if ($_SESSION['loggedin'] === TRUE) {
             echo "Input info in all boxes <br/>";
 
         }
+    }elseif (isset($_POST["catID"]) && isset($_POST["catDelete"])) {
+        $catID = $_POST["catID"];
+        echo "should delete: " . $_POST["catDelete"];
     }elseif (isset($_POST["catName"]) && isset($_POST["catURL"])) {
         $catName = $_POST["catName"];
         $catURL = $_POST["catURL"];
         $catIcon = $_POST["catIcon"];
+
+
         if (($catName != null) && ($catURL != null) && ($catIcon != null)) {
             $sql = "INSERT INTO cat(cat, name, icon) VALUES (?, ?, ?)";
             $stmt = $pdo->prepare($sql);
@@ -37,7 +46,6 @@ if ($_SESSION['loggedin'] === TRUE) {
             echo "Input info in all boxes <br/>";
 
         }
-
     }
 
 ?>

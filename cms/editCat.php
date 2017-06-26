@@ -14,8 +14,10 @@ if ($stmt->execute([$cat])) {
     <input name="catURL" size="10" placeholder="Category URL name"  value="<?= $row[0]["cat"] ?>">
     <input name="catIcon" class="icp icp-auto" value="<?= $row[0]["icon"] ?>" type="text" />
     <input name="catID" type="hidden" value="<?= $row[0]["id"] ?>" />
-
+    <label for="catDelete">Delete?</label>
+    <input name="catDelete" type="checkbox" />
     <input type="submit" value="Edit">
+
 </form>
 <script>
 $(function() {

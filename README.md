@@ -13,4 +13,10 @@ Rebuilding my personal website, which is mostly vanilla PHP, and documenting the
 5. Figure out how to handle deleting for categories. Don't want to orphan posts in DB. Should I just innactivate them, or delete entirely from DB? Are they visible from the admin panel at all?
 5. Add "Featured Content" DB table that references post IDs and has fields for "technology stats"... which might be it's own reference table, color... and... you can add a short description of the project.
 5. Add some cool stuff with REACT
+6. Selenium testing with python
+    1. spider link hrefs on home page
+    2. add unique links to array.
+    3. visit links.
+    4. add only add new links to array if on page from $_SERVER["SERVER_NAME"].
+    5. output originating page URI, href, and return of bad links.
 6. Add decent content!
