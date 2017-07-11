@@ -75,6 +75,7 @@
 }else{
 	// Display special!
 	include("charSelect.php");
+
 }
 ?>
 </html>
