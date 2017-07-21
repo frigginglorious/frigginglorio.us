@@ -9776,15 +9776,26 @@ var IconList = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (IconList.__proto__ || Object.getPrototypeOf(IconList)).call(this, props));
 
         _this.state = {
-            "iconArray": theArray
+            "iconArray": theArray,
+            "displayTitle": "",
+            "displayContent": "",
+            "displayImg": "",
+            "displayPostID": ""
+
         };
         return _this;
     }
 
     _createClass(IconList, [{
+        key: 'mouseMaster',
+        value: function mouseMaster() {
+            // this.setState({displayPost:this});
+            console.log(this);
+        }
+    }, {
         key: 'renderIcon',
         value: function renderIcon(type) {
-            return _react2.default.createElement('i', { className: 'theIcons fa ' + type, 'aria-hidden': 'true' });
+            return {/* <h2 key={type["title"]} className="projectTitle">{ type["title"]}</h2> */};
         }
     }, {
         key: 'render',
@@ -9793,10 +9804,21 @@ var IconList = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                null,
-                this.state.iconArray.map(function (icon) {
-                    return _this2.renderIcon(icon);
-                })
+                { id: 'iconList' },
+                _react2.default.createElement(
+                    'div',
+                    { id: 'theIcons' },
+                    this.state.iconArray.map(function (icon) {
+                        return _react2.default.createElement(
+                            'div',
+                            { key: icon["postID"], className: 'projectBox', onMouseEnter: function onMouseEnter() {
+                                    return _this2.setState({ displayTitle: icon.title, displayContent: icon.content, displayImg: icon.img, displayPostID: icon.postID });
+                                } },
+                            _react2.default.createElement(Ico, { key: icon["postID"], data: icon })
+                        );
+                    })
+                ),
+                _react2.default.createElement(InfoBox, { title: this.state.displayTitle, content: this.state.displayContent, img: this.state.displayImg, postID: this.state.displayPostID })
             );
         }
     }]);
@@ -9804,84 +9826,104 @@ var IconList = function (_React$Component) {
     return IconList;
 }(_react2.default.Component);
 
-_reactDom2.default.render(
-// React.createElement(theIcons),
-_react2.default.createElement(IconList, null),
-// <CommentBox />,
-document.getElementById('root'));
+var Ico = function (_React$Component2) {
+    _inherits(Ico, _React$Component2);
 
-// class anIcon extends React.Component {
-//     renderIcon(type){
-//         return(
-//             <i className="theIcons fa {type}" aria-hidden="true"></i>
-//         );
-//     }
-//     render(){
-//         return(
-//             <i className="theIcons fa {this.data.theType}" aria-hidden="true"></i>
-//         );
-//     }
-// }
+    function Ico(props) {
+        _classCallCheck(this, Ico);
 
+        var _this3 = _possibleConstructorReturn(this, (Ico.__proto__ || Object.getPrototypeOf(Ico)).call(this, props));
 
-// const ico = {
-//     ico1
-// }
-//
-// function ico(props){
-//     return(
-//         <div>
-//         Ths is an ico?
-//         </div>
-//     )
-// }
-// ReactDOM.render(<ico />, document.getElementById("root"))
-// ReactDOM.render(React.createElement(anIcon), document.getElementById("root"))
+        _this3.state = {
+            "selected": false
+            // "displayPost": "",
+        };
+        return _this3;
+    }
 
+    _createClass(Ico, [{
+        key: 'moused',
+        value: function moused() {
+            // console.log("mouseed");
+            this.setState({ selected: true });
+            // console.info(this);
+            // this.setState({displayPost:this});
+        }
+    }, {
+        key: 'unMoused',
+        value: function unMoused() {
+            // console.log("unMouseed");
+            this.setState({ selected: false });
+            // console.info(this);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var className = 'icoBase ' + (this.state.selected ? 'projectBack' : '');
+            return _react2.default.createElement(
+                'div',
+                { className: className, onMouseEnter: this.moused.bind(this), onMouseOut: this.unMoused.bind(this) },
+                _react2.default.createElement('i', { key: this.props.data.postID, className: 'theIcons fa ' + this.props.data.icon, 'aria-hidden': 'true' })
+            );
+        }
+    }]);
 
-// class theIcons extends React.Component {
-//
-//     render(){
-//         return(
-//             <i className={`theIcons fa ${ theArray[i] }`} aria-hidden="true"></i>
-//             // className={`pill ${ this.props.styleName }`}
-//         );
-//     }
-// }
+    return Ico;
+}(_react2.default.Component);
 
+var InfoBox = function (_React$Component3) {
+    _inherits(InfoBox, _React$Component3);
 
-// var ic = React.createClass({
-//     // getInitialState: function() {
-//     //     return { data : theArray}
-//     // },
-//     render: function(){
-//         return(
-//             <i className="theIcons fa {{ this.data.theType }}" aria-hidden="true"></i>
-//         );
-//     }
-// });
+    function InfoBox(props) {
+        _classCallCheck(this, InfoBox);
 
-// var CommentBox = React.createClass({
-//     render: function(){
-//         return(
-//                 <div className="commentBox">
-//                     hellow words to the mother.
-//                     $_SERVER['DOCUMENT_ROOT']
-//                     { theArray[i] }
-//                 </div>
-//         );
-//     }
-// });
+        return _possibleConstructorReturn(this, (InfoBox.__proto__ || Object.getPrototypeOf(InfoBox)).call(this, props));
+    }
 
-// for(var i = 0; i < Object.keys(theArray).length; i++){
-//     console.log(i);
-//     // console.log('document.getElementById(icon{'+i+'})');
-//
-//     // ReactDOM.render(
-//     //     <CommentBox />,
-//     //     document.getElementById('quiz')
-//     // )
-// }
+    _createClass(InfoBox, [{
+        key: 'render',
+        value: function render() {
+            this.url = "/index.php?postID=" + this.props.postID;
+            // console.log(this.props.iconArray);
+            return _react2.default.createElement(
+                'div',
+                { id: 'InfoBox' },
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: this.url },
+                        this.props.title
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'detailBox' },
+                    _react2.default.createElement(
+                        'div',
+                        { id: 'imgBox' },
+                        _react2.default.createElement('img', { id: 'displayImg', src: this.props.img })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { id: 'contentBox' },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            this.props.content
+                        )
+                    ),
+                    _react2.default.createElement('div', { id: 'clear' })
+                )
+            );
+        }
+    }]);
+
+    return InfoBox;
+}(_react2.default.Component);
+
+_reactDom2.default.render(_react2.default.createElement(IconList, null), document.getElementById('root'));
 
 /***/ }),
 /* 82 */

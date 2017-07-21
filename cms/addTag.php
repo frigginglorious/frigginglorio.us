@@ -1,7 +1,7 @@
 <?php
 if ($_SESSION['loggedin'] === TRUE) {
-
-    //Update Category
+    
+    //Update Tag
     if (isset($_POST["catName"]) && isset($_POST["catURL"]) && isset($_POST["catID"]) && !isset($_POST["catDelete"])) {
         $catName = $_POST["catName"];
         $catURL = $_POST["catURL"];
@@ -26,12 +26,12 @@ if ($_SESSION['loggedin'] === TRUE) {
 
         }
 
-    //Delete Category
+    // Delete Tag
     }elseif (isset($_POST["catID"]) && isset($_POST["catDelete"])) {
         $catID = $_POST["catID"];
         echo "should delete: " . $_POST["catDelete"];
 
-    //Add Category
+    // Add Tag
     }elseif (isset($_POST["catName"]) && isset($_POST["catURL"])) {
         $catName = $_POST["catName"];
         $catURL = $_POST["catURL"];
