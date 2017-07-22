@@ -7,18 +7,21 @@ body{
   font-family: "8bit";
     background-color: black;
     color:white;
+    line-height: 200%;
 }
 h1{
   text-align: center;
 }
-
+a:visited{
+  color: #23527C
+}
+a{
+  color: white;
+}
 .theIcons{
     font-size: 10em !important;
     -webkit-transform:    skewX(20deg);
     transform:    skewX(20deg);
-}
-.projectTitle{
-
 }
 .projectBox{
     /*float:right;*/
@@ -39,7 +42,7 @@ h1{
   transform:    skewX(-20deg);
 }
 .projectBack{
-  color: gray;
+  color: green;
   background: #23528C;
 
 }
@@ -49,31 +52,36 @@ h1{
 }
 #InfoBox{
   /*position: absolute;*/
+  margin-left: auto;
+  margin-right:auto;
   margin-top: 1.5em;
   bottom: 10px;
-  width:100%;
-  height:50%;
+  width:90%;
+  max-height:50%;
   border-radius: 5px 5px 5px 5px;
 -moz-border-radius: 5px 5px 5px 5px;
 -webkit-border-radius: 5px 5px 5px 5px;
 /*border: 2px solid white;*/
   border: 2px solid white;
-
+  padding-left: 1em; 
+  padding-right: 1em; 
 
 
 }
 #displayImg{
   /*width: 95%;*/
   max-height: 100%;
-  max-width: 100%;
+  max-width: 95%;
   /*border: 2px solid white;*/
   /*padding-left:1em;*/
+
+
   /*max-height: 80%;*/
 }
 #imgBox{
   /*padding: 1em;*/
 
-  width:20em;
+  width:25em;
   height:20em;
 
   max-width: 50%;
@@ -82,15 +90,15 @@ h1{
 
 }
 #detailBox{
-  height: 100%;
+  height: 90%;
   /*display: inline;*/
 }
 #clear{
   clear:both;
 }
-#contentBox{
-  margin-left:1em;
-  padding-left:1em;
+#contentBox p{
+/*  margin-left:1em;
+  padding-left:1em;*/
   /*max-width: 45%;*/
   /*position: relative;*/
   /*float: right;*/

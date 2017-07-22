@@ -8,8 +8,8 @@ class IconList extends React.Component {
       this.state = {
         "iconArray":theArray,
         "displayTitle": "",
-        "displayContent": "",
-        "displayImg": "",
+        "displayContent": "Daniel Kraft's Portfolio",
+        "displayImg": "/fil/sexy.jpg",
         "displayPostID": "",
 
       };

@@ -9778,8 +9778,8 @@ var IconList = function (_React$Component) {
         _this.state = {
             "iconArray": theArray,
             "displayTitle": "",
-            "displayContent": "",
-            "displayImg": "",
+            "displayContent": "Daniel Kraft's Portfolio",
+            "displayImg": "/fil/sexy.jpg",
             "displayPostID": ""
 
         };

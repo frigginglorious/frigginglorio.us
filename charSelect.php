@@ -5,7 +5,7 @@
 
 </head>
 <body>
-    <h1>Select Your Character</h1>
+    <h1>Select a Player</h1>
 
 
     <?php
@@ -36,10 +36,10 @@ theArray.forEach(function(element){
     // console.log(element["content"]);
     el.innerHTML = element["content"];
     tags = el.getElementsByTagName( 'img' );
-    console.log(tags);
+    // console.log(tags);
     element["img"] = tags[0].src;
     tags = el.getElementsByTagName( 'blockquote' );
-    console.log(tags);
+    // console.log(tags);
     element["content"] = tags[0].innerText || element.textContent;
     // element["title"] = element["title"].toUpperCase();
 

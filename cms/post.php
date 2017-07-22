@@ -114,7 +114,7 @@ tinymce.init({
                 include("editCat.php");
             }else{
                 include("addCat.php");
-                include("addTag.php");
+                // include("addTag.php");
                 include("addPost.php");
             }
 
