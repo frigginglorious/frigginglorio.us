@@ -14,7 +14,7 @@
 
 ?>
     </select><br/>
-    Blog Post Title: <input id="title" name="title"></input><br/>
+    Blog Post Title: <input id="title" name="title"></input> Featured? <input id="featured" name="featured" type="checkbox"></input><br/>
     Blog Post Text: <textarea id="content" name="content"></textarea><br/>
     <input type="submit" value="Submit">
 </form>

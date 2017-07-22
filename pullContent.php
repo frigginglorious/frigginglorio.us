@@ -25,7 +25,7 @@
 					if(count($rows)>0){
 						$catName = $rows[0]['catName'];
 						$catIcon = $rows[0]['catIcon'];
-						echo "<h2>{$catName}</h2>";
+						echo "<h1>{$catName}</h1>";
 						for ($i = 0; $i < strlen($catName); $i++){
 							echo "<i class='fa {$catIcon}'></i>";
 						}
@@ -33,8 +33,9 @@
 
 					foreach ($rows as $row)
 					{
-					   echo "<h3>" . $row["title"] . "</h3>Posted By: " . $row["authorName"] . ", at: " . $row["date"] . " EST.<br /><br />";
+					   echo "<h2>" . $row["title"] . "</h2>Posted By: " . $row["authorName"] . ", at: " . $row["date"] . " EST.<br /><br />";
 					   echo $row["content"];
+					   echo "<hr/>";
 					}
 
 				}

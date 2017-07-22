@@ -28,7 +28,10 @@
 ?>
 </select><br/>
 <input type="hidden" id="id" name="id" value="<?= $row[0]["id"] ?>"></input>
-    Blog Post Title: <input id="title" name="title" value="<?= $row[0]["title"] ?>"></input><br/>
+    Blog Post Title: <input id="title" name="title" value="<?= $row[0]["title"] ?>"></input> Featured?
+    <input id="featured" name="featured" type="checkbox"
+    <?php $check = ($row[0]["featured"] == '1' ? " checked" : ""); echo $check ?>
+    ></input><br/>
     Blog Post Text: <textarea id="content" name="content"><?= $row[0]["content"] ?></textarea><br/>
     <input type="submit" value="Edit">
 </form>
