@@ -8,9 +8,9 @@ class IconList extends React.Component {
       this.state = {
         "iconArray":theArray,
         "displayTitle": "",
-        "displayContent": "Daniel Kraft's Portfolio",
+        "displayContent": "DANIEL KRAFT'S PORTFOLIO",
         "displayImg": "/fil/sexy.jpg",
-        "displayPostID": "",
+        "displayPostID": "33",
 
       };
     }
@@ -77,7 +77,8 @@ class InfoBox extends React.Component {
         return(
 
             <div id="InfoBox">
-                <h3><a href={this.url}>{this.props.title}</a></h3>
+            <a href={this.url}>
+                <h3>{this.props.title}</h3>
                 <div id="detailBox">
                     <div id="imgBox">
                         <img id="displayImg" src={this.props.img} />
@@ -87,7 +88,7 @@ class InfoBox extends React.Component {
                     </div>
                     <div id="clear"></div>
                 </div>
-
+            </a>
             </div>
 
         )

@@ -9778,9 +9778,9 @@ var IconList = function (_React$Component) {
         _this.state = {
             "iconArray": theArray,
             "displayTitle": "",
-            "displayContent": "Daniel Kraft's Portfolio",
+            "displayContent": "DANIEL KRAFT'S PORTFOLIO",
             "displayImg": "/fil/sexy.jpg",
-            "displayPostID": ""
+            "displayPostID": "33"
 
         };
         return _this;
@@ -9889,32 +9889,32 @@ var InfoBox = function (_React$Component3) {
                 'div',
                 { id: 'InfoBox' },
                 _react2.default.createElement(
-                    'h3',
-                    null,
+                    'a',
+                    { href: this.url },
                     _react2.default.createElement(
-                        'a',
-                        { href: this.url },
+                        'h3',
+                        null,
                         this.props.title
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { id: 'detailBox' },
-                    _react2.default.createElement(
-                        'div',
-                        { id: 'imgBox' },
-                        _react2.default.createElement('img', { id: 'displayImg', src: this.props.img })
                     ),
                     _react2.default.createElement(
                         'div',
-                        { id: 'contentBox' },
+                        { id: 'detailBox' },
                         _react2.default.createElement(
-                            'p',
-                            null,
-                            this.props.content
-                        )
-                    ),
-                    _react2.default.createElement('div', { id: 'clear' })
+                            'div',
+                            { id: 'imgBox' },
+                            _react2.default.createElement('img', { id: 'displayImg', src: this.props.img })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { id: 'contentBox' },
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                this.props.content
+                            )
+                        ),
+                        _react2.default.createElement('div', { id: 'clear' })
+                    )
                 )
             );
         }

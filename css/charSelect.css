@@ -12,11 +12,12 @@ body{
 h1{
   text-align: center;
 }
-a:visited{
-  color: #23527C
+a:visited h3{
+  color: green;
 }
-a{
-  color: white;
+a h3{
+  color: #23527C;
+
 }
 .theIcons{
     font-size: 10em !important;
@@ -65,7 +66,7 @@ a{
   border: 2px solid white;
   padding-left: 1em; 
   padding-right: 1em; 
-
+  padding-bottom: 1em;
 
 }
 #displayImg{
@@ -82,7 +83,7 @@ a{
   /*padding: 1em;*/
 
   width:25em;
-  height:20em;
+  height:16em;
 
   max-width: 50%;
 
@@ -96,10 +97,15 @@ a{
 #clear{
   clear:both;
 }
-#contentBox p{
-/*  margin-left:1em;
-  padding-left:1em;*/
-  /*max-width: 45%;*/
-  /*position: relative;*/
-  /*float: right;*/
+a{
+  text-decoration: none !important;
+  color:white !important;
 }
+/*a:visited #detailBox #contentBox p {
+  color:white;
+  text-decoration: none !important;
+}
+a #detailBox #contentBox p {
+  color:white;
+  text-decoration: none !important;
+}*/
