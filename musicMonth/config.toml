@@ -1,0 +1,5 @@
+baseURL = "http://frigginglorious.github.io/frigginGlorious"
+languageCode = "en-us"
+title = "frigginGlorious"
+theme = "hyde"
+style = "default"
