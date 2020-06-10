@@ -2,7 +2,7 @@
 <link href="/css/charSelect.css" rel="stylesheet">
 <!-- <script src="/js/charSelect.js" type="text/javascript"></script> -->
 <link rel="stylesheet" href="css/fa/css/font-awesome.min.css">
-
+<title>Daniel Kraft's Portfolio</title>
 </head>
 <body>
     <h1>SELECT A PLAYER</h1>

