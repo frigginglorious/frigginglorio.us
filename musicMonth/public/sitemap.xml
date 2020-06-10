@@ -3,30 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/musicMonth/posts/61019/</loc>
+    <loc>http://localhost:1313/frigginGlorious/posts/dearheartthrob/</loc>
+    <lastmod>1969-12-31T18:00:06-06:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/musicMonth/posts/61119/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/musicMonth/categories/</loc>
+    <loc>http://localhost:1313/frigginGlorious/posts/</loc>
+    <lastmod>1969-12-31T18:00:06-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/musicMonth/posts/</loc>
+    <loc>http://localhost:1313/frigginGlorious/posts/first/</loc>
+    <lastmod>1969-12-31T18:00:06-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/frigginGlorious/</loc>
+    <lastmod>1969-12-31T18:00:06-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/musicMonth/tags/</loc>
+    <loc>http://localhost:1313/frigginGlorious/posts/second/</loc>
+    <lastmod>1969-12-31T18:00:06-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/frigginGlorious/posts/61019/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/frigginGlorious/posts/61119/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/frigginGlorious/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/musicMonth/</loc>
+    <loc>http://localhost:1313/frigginGlorious/tags/</loc>
     <priority>0</priority>
   </url>
   

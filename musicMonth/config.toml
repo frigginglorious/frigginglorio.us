@@ -1,5 +1,5 @@
-baseURL = "http://frigginglorious.github.io/musicMonth"
+baseURL = "http://frigginglorious.github.io/musicMonth/"
 languageCode = "en-us"
-title = "frigginGlorious"
+title = "musicMonth"
 theme = "hyde"
 style = "default"

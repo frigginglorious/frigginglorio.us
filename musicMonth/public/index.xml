@@ -2,29 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>frigginGlorious</title>
-    <link>http://localhost:1313/musicMonth/</link>
+    <link>http://localhost:1313/frigginGlorious/</link>
     <description>Recent content on frigginGlorious</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 31 Dec 1969 18:00:06 -0600</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/musicMonth/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/frigginGlorious/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Dear Heartthrob</title>
+      <link>http://localhost:1313/frigginGlorious/posts/dearheartthrob/</link>
+      <pubDate>Wed, 31 Dec 1969 18:00:06 -0600</pubDate>
+      
+      <guid>http://localhost:1313/frigginGlorious/posts/dearheartthrob/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>first</title>
+      <link>http://localhost:1313/frigginGlorious/posts/first/</link>
+      <pubDate>Wed, 31 Dec 1969 18:00:06 -0600</pubDate>
+      
+      <guid>http://localhost:1313/frigginGlorious/posts/first/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>second</title>
+      <link>http://localhost:1313/frigginGlorious/posts/second/</link>
+      <pubDate>Wed, 31 Dec 1969 18:00:06 -0600</pubDate>
+      
+      <guid>http://localhost:1313/frigginGlorious/posts/second/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>6-10-19</title>
-      <link>http://localhost:1313/musicMonth/posts/61019/</link>
+      <link>http://localhost:1313/frigginGlorious/posts/61019/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/musicMonth/posts/61019/</guid>
+      <guid>http://localhost:1313/frigginGlorious/posts/61019/</guid>
       <description></description>
     </item>
     
     <item>
       <title>6-11-19</title>
-      <link>http://localhost:1313/musicMonth/posts/61119/</link>
+      <link>http://localhost:1313/frigginGlorious/posts/61119/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/musicMonth/posts/61119/</guid>
+      <guid>http://localhost:1313/frigginGlorious/posts/61119/</guid>
       <description></description>
     </item>
     
