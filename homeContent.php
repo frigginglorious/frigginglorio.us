@@ -11,7 +11,7 @@
 		If you think you can help me find this job, please email me at <a href="mailto:kraftd@live.com">kraftd@live.com</a>.
 	</p>
 	<p>
-		Though I currently dwell in the Capitol Hill neighborhood of Seattle, my primary residence will always be the internet.
+		Though I currently dwell in Eau Claire, Wisconsin, USA, my primary residence will always be the internet.
 	</p>
 	<!-- <p>
 		If you are looking to contact me securely at my personal gmail address, my PGP public key is <a href="fil/pgpkey.txt" target="_blank">available here</a>
