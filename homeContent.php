@@ -1,5 +1,5 @@
 <h2>
-	A Portfolio
+	A Poorly Updated Blog
 </h2>
 	<br>
 	<p>
